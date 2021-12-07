@@ -1,0 +1,17 @@
+footer{
+    padding: 0;
+    margin: 0;
+    font-size: large;
+
+}
+.partners .site-map{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+} 
+.nav-footer{
+    display: flex;
+    justify-content: space-around;
+    background: rgb(60,60,223);
+    background: linear-gradient(176deg, rgba(60,60,223,1) 0%, rgba(101,105,177,1) 0%, rgba(41,181,153,1) 100%);
+}

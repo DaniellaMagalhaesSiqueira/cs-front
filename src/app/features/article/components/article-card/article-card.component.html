@@ -1,0 +1,8 @@
+<mat-card class="card-article" (click)="navigate(article!)">
+    <mat-card-title>{{article?.title}}</mat-card-title>
+    <p>{{article?.id}}</p>
+    <img mat-card-md-image src="{{article?.imageUrl}}" >
+    <mat-card-content>
+        {{article?.preview}}
+    </mat-card-content>
+</mat-card>
