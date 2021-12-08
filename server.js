@@ -1,7 +1,7 @@
 
 const express = require('express');
 const app = express();
-const appName = 'cs-front'
+const appName = 'chandra-surya'
 const outputPath = `${__dirname}/dist/${appName}`;
 app.use(express.static(outputPath));
 app.get('/*', (req, res)=>{
