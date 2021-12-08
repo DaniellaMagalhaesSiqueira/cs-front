@@ -11,6 +11,7 @@ import { LoginModule } from './features/login/login.module';
 import { UserModule } from './features/user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './features/layout/layout.module';
+import { CardModule } from './features/card/card.module';
 
 
 registerLocaleData(localePt);
@@ -29,6 +30,7 @@ registerLocaleData(localePt);
     UserModule,
     BrowserAnimationsModule,
     LayoutModule,
+    CardModule
   ],
   providers: [
     {

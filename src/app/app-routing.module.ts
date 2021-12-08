@@ -4,8 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllArticlesPageComponent } from './features/article/pages/all-articles-page/all-articles-page.component';
 import { ArticleDetailPageComponent } from './features/article/pages/article-detail-page/article-detail-page.component';
 import { CreateArticlePageComponent } from './features/article/pages/create-article-page/create-article-page.component';
+import { CardsTaroPageComponent } from './features/card/pages/cards-taro-page/cards-taro-page.component';
+import { InterpretationPageComponent } from './features/card/pages/interpretation-page/interpretation-page.component';
 import { AllConsultationsPageComponent } from './features/consultation/pages/all-consultations-page/all-consultations-page.component';
 import { CreateConsultationComponent } from './features/consultation/pages/create-consultation/create-consultation.component';
+import { AboutPageComponent } from './features/home/pages/about-page/about-page.component';
 import { HomePageComponent } from './features/home/pages/home-page/home-page.component';
 import { LayoutPageComponent } from './features/layout/pages/layout-page/layout-page.component';
 import { LoginPageComponent } from './features/login/pages/login-page/login-page.component';
@@ -27,6 +30,10 @@ const routes: Routes = [
       { path: 'all-articles', component: AllArticlesPageComponent },
       { path: 'article-detail/:id', component: ArticleDetailPageComponent },
       { path: 'self-create-user', component: SelfCreateUserPageComponent },
+      { path: 'game-card', component: CardsTaroPageComponent },
+      { path: 'interpretation/:id', component: InterpretationPageComponent },
+      { path: 'about', component: AboutPageComponent },
+
     ]
   },
   { path: 'users', component: UserPageComponent, canActivate: [AuthGuardGuard] },

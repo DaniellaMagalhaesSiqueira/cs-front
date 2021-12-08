@@ -6,15 +6,20 @@
         <button mat-button routerLink="/home">
             <mat-icon class="icon">home</mat-icon> Home
         </button>
-        <button mat-button [matMenuTriggerFor]="astroMenu"> Astrologia </button>
-        <mat-menu #astroMenu="matMenu" yPosition="below">
+        <button mat-button [matMenuTriggerFor]="esotMenu"> Esoterismo </button>
+        <mat-menu #esotMenu="matMenu" yPosition="below">
             <button mat-menu-item routerLink="/all-consultations"> Consultas </button>
         </mat-menu>
         <button mat-button [matMenuTriggerFor]="articleMenu"> Artigos </button>
         <mat-menu #articleMenu="matMenu" yPosition="below">
             <button mat-menu-item routerLink="/all-articles"> Todos os Artigos </button>
         </mat-menu>
+        <button mat-button [matMenuTriggerFor]="cardMenu"> Cartas </button>
+        <mat-menu #cardMenu="matMenu" yPosition="below">
+            <button mat-menu-item routerLink="/game-card"> Tarô on-line! </button>
+        </mat-menu>
         <app-manager></app-manager>
+        <button mat-button routerLink="about"> Sobre </button>
         <span class="pre-account"></span>
         <app-account></app-account>
     </mat-toolbar-row>

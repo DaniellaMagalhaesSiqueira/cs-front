@@ -33,9 +33,11 @@ export class ArticleDetailPageComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       const article = this.articleService.getById(params.id);
       this.article = article;
+      this.comments = this.commentService.getByArticle(this.article!.id);
     });
-    this.commentService.getByArticleStream().subscribe((comments) => {
+    this.commentService.getByArticleStream(this.article!.id).subscribe((comments) => {
       this.comments = comments;
+      console.log("observable");
     });
   }
   ngOnInit(): void {
@@ -52,7 +54,8 @@ export class ArticleDetailPageComponent implements OnInit {
     this.comment.user = this.user!.id;
     this.comment.article = this.article!.id;
     this.comment.comment = formValue.comment;
-    this.commentService.createComment(this.comment);
+    this.commentService.createComment(this.comment, this.article!.id);
+    console.log(this.comments);
     this.dialog.open(MessageDialogComponent, {
       data: {
         message: "O presente site não se responsabiliza por atos ilícitos de terceiros como injúria, calúnia ou difamação",
@@ -60,7 +63,8 @@ export class ArticleDetailPageComponent implements OnInit {
       }
     });
     this.commentForm.reset();
-    this.router.navigateByUrl(`article-detail/${this.article!.id}`);
+    // this.router.navigateByUrl(`article-detail/${this.article!.id}`);
+    this.router.navigateByUrl('home');
 
   }
 }

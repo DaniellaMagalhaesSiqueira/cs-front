@@ -3,9 +3,10 @@
     display: flex;
     justify-content: center;
     mat-card {
+        min-height: 100%;
         margin: 20px 0 40px 0;
+        text-overflow: clip;
 
-        height: 100%;
     }
 }
 

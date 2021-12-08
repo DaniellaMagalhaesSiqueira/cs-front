@@ -13,6 +13,7 @@ h1{
     color: #DB7093;
 }
 .article-items{
+    overflow: auto;
     max-width: 800px;
     display: flex;
     flex-direction: column;

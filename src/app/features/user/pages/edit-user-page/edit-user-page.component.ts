@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class EditUserPageComponent implements OnInit {
 
-  user: User | null = this.userService.getLoggedUser();
+  user = this.userService.getLoggedUser();
 
   editUserForm!: FormGroup;
 
@@ -54,21 +54,27 @@ export class EditUserPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.user);
     const formValue = this.editUserForm.value;
-    this.user!.name = formValue.name;
-    this.user!.email = formValue.email;
-    this.user!.cpf = formValue.cpf;
-    this.user!.password = formValue.password;
-    this.user!.birthDate = formatDate(formValue.birthDate, 'yyyy-MM-dd', 'en');
-    this.userService.updateUser(this.user!);
-    this.dialog.open(MessageDialogComponent, {
-      data: {
-        message: 'Por favor, faça novamente seu login.',
-        titleMessage: 'Conta alterada com sucesso!'
-      }
-    });
-    sessionStorage.clear();
-    this.userService.editLoggedUser(null);
-    this.router.navigateByUrl('/home');
+    if(this.user){
+
+      this.user.name = formValue.name;
+      this.user.email = formValue.email;
+      this.user.cpf = formValue.cpf;
+      this.user.password = formValue.password;
+      this.user.birthDate = formatDate(formValue.birthDate, 'yyyy-MM-dd', 'en');
+      console.log(this.user);
+      
+      this.userService.updateUser(this.user);
+      this.dialog.open(MessageDialogComponent, {
+        data: {
+          message: 'Por favor, faça novamente seu login.',
+          titleMessage: 'Conta alterada com sucesso!'
+        }
+      });
+      sessionStorage.clear();
+      this.userService.editLoggedUser(null);
+      this.router.navigateByUrl('/home');
+    }
   }
 }

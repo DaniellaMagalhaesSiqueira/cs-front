@@ -1,0 +1,11 @@
+<mat-card >
+    <h2>{{card?.name}}</h2>
+    <img src="{{card?.image}}">
+    <h4 *ngIf="card?.inverted">Invertida</h4>
+    <p *ngIf="card?.inverted">{{card?.negative}}</p>
+    <p *ngIf="!card?.inverted">{{card?.positive}}</p>
+    <h5>Interpretações retiradas da página: 
+        <a href="https://www.astrocentro.com.br/" target="_blank">https://www.astrocentro.com.br/</a></h5>
+</mat-card>
+
+

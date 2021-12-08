@@ -12,13 +12,17 @@ export class CreateConsultationComponent implements OnInit {
 
   consultation: Consultation = this.consultationService.getDefaultConsultation();
   consultationForm!: FormGroup;
-  consultations: Array<Consultation> = [];
+  consultations: Array<Consultation> = this.consultationService.getConsultations();
   constructor(
     private formBuilder: FormBuilder,
     private consultationService: ConsultationService,
     private router: Router,
 
-  ) { }
+  ) {
+      this.consultationService.getConsultationsStream().subscribe((consultations) =>{
+      this.consultations = consultations;
+    })
+   }
 
   ngOnInit(): void {
     this.consultationForm = this.formBuilder.group({
@@ -44,12 +48,9 @@ export class CreateConsultationComponent implements OnInit {
     this.consultation.contact = formValue.contact; 
     this.consultation.price = formValue.price || 0; 
     this.consultationService.createConsultation(this.consultation);
-    this.consultationService.getConsultationsStream().subscribe((consultations) =>{
-      this.consultationService.getConsultations().push(this.consultation);
-      consultations = this.consultationService.getConsultations();
-    })
+  
     
-    this.router.navigateByUrl("all-consultations");
+    this.router.navigateByUrl("home");
   }
 
 }

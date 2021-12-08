@@ -1,0 +1,14 @@
+
+<div class="component">
+    <div id="card" class="{{flipped ? 'flip' : ''}}" (click)="clickCard($event)">
+        <div class="face" id="front">
+            <img src="{{card?.image}}" class="{{card?.inverted ? 'imageInverse' : ''}}">
+        </div>
+        <div class="face" id="back">O Tarô de Marselha</div>
+    </div>
+</div>
+<div class="description" *ngIf="flipped">
+    <h5>{{card?.name}}</h5>
+    <p *ngIf="card?.inverted">Invertida</p>
+    <button mat-raised-button (click)="navigate(card!)">Ver interpretação</button>
+</div>

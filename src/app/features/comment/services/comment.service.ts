@@ -25,13 +25,16 @@ export class CommentService {
     return this.comments.getValue();
   }
 
-  getByArticle(article: number){
+  getByArticle(article: string){
     this.httpClient.get<Comment[]>(`${this.urlBackend}/article/${article}`).subscribe((comments) =>{
       this.comments.next(comments);
     });
     return this.comments.getValue();
   }
-  getByArticleStream(){
+  getByArticleStream(article: string){
+    this.httpClient.get<Comment[]>(`${this.urlBackend}/article/${article}`).subscribe((comments) =>{
+      this.comments.next(comments);
+    });
     return this.comments.asObservable();
   }
 
@@ -48,12 +51,13 @@ export class CommentService {
     };
   }
 
-  createComment(comment: Comment){
+  createComment(comment: Comment, article: string){
     const body = JSON.stringify(comment);
+
     this.httpClient.post<Comment>(`${this.urlBackend}/create`, body, {headers: this.headers}).subscribe((comment)=>{
       this.getComments().push(comment);
-      this.comments.next(this.getComments());
     });
+    return this.getByArticle(article);
   }
 
 

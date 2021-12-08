@@ -1,4 +1,5 @@
 
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,8 +30,9 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(){
     const user = this.userService.getUserByEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password).subscribe((user)=>{
+      console.log(console.error());
       if(!user){
-        this.error = true;
+        this.error = true;  
       }else{
         sessionStorage.setItem('user', JSON.stringify(user));
         this.userService.editLoggedUser(user);
@@ -38,6 +40,9 @@ export class LoginPageComponent implements OnInit {
         this.router.navigateByUrl('home');
       }
     });
+    if(HttpErrorResponse){
+      this.error = true;
+    }
     console.log(user);
   }
 

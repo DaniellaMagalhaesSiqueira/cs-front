@@ -12,7 +12,7 @@ export class UsersListComponent implements OnInit {
   users!: Array<User>;
   constructor(private userService: UserService) { 
     this.userService.getUsersStream().subscribe((users) =>{
-      this.users = users.filter((u) => u.isAdmin === true && u.id !== "8f9d1da3-d0d8-4420-971e-7f5707a62ad2");
+      this.users = users.filter((u) => u.isAdmin === true && u.id !== "3204ded5-6552-46ca-bb7a-92a80bcce95b");
     });
   }
 

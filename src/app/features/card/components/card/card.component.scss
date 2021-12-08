@@ -1,0 +1,57 @@
+
+.component{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.face{
+    width: 180px;
+    height: 255px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 15px;
+    font-size: 22px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+
+}
+#front{
+    background: rgb(60,60,223);
+    background: linear-gradient(176deg, rgba(60,60,223,1) 0%, rgba(172,180,237,1) 0%, rgba(223,132,226,1) 100%);
+    color: white;
+    transform: rotateY(180deg);
+}
+#back{
+    background: url("../../../../../assets/images/costas_carta.jpg");
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    // background-size: cover;
+    color: black;
+}
+.flip{
+    transform: rotateY(180deg);
+}
+#card{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all .9s;
+}
+.imageInverse{
+    transform: rotate(180deg);
+}
+
+.description{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 280px;
+    position: fixed;
+    left: 45%;
+    button{
+        font-size: 20px;
+        background-color: #B388FF;
+        color: white;
+    }
+}
