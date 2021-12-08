@@ -10,7 +10,7 @@ import { CardService } from '../../services/card.service';
 })
 export class CardComponent implements OnInit {
   @Input()
-  card = this.cardService.getById(1);
+  card?: Card;
   cards?: Array<Card> = this.cardService.getCards();
   flipped: boolean = false;
   constructor(
@@ -37,10 +37,10 @@ export class CardComponent implements OnInit {
         const number = Math.trunc(result);
         this.card = this.cardService.getCards().find((c)=> c.id === number);
       }
+      if(result == 0){
+        this.card = this.cardService.getCards().find((c)=> c.id === 1);
+      }
       if(result < 0){
-        if(result == 0){
-          this.card = this.cardService.getCards().find((c)=> c.id === 1);
-        }
         const number = Math.trunc(result) * (-1);
         this.card = this.cardService.getCards().find((c)=> c.id === number);
         this.cardService.invertedCard(number);
