@@ -5,8 +5,8 @@
       <img mat-card-md-image src="{{consultation?.imageUrl}}" >
     </mat-card-title-group>
     <mat-card-content>
-        <p>{{ consultation?.description }}</p>
-        <p>{{ consultation?.contact }}</p>
+        <p class="description">{{ consultation?.description }}</p>
+        <p class="description">{{ consultation?.contact }}</p>
         <p *ngIf="consultation?.price">Valor: {{ consultation!.price | currency: 'BRL' }}</p>
         <p *ngIf="!consultation?.price || consultation?.price === 0.0">Valor a combinar</p>
     </mat-card-content>

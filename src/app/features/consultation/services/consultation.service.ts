@@ -21,7 +21,7 @@ export class ConsultationService {
 
   getDefaultConsultation(): Consultation {
     return {
-      id: "0",
+      id: "",
       isUser: false,
       professional: '',
       theme: '',

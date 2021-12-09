@@ -8,12 +8,12 @@ import { ConsultationService } from '../../services/consultation.service';
 })
 export class AllConsultationsPageComponent implements OnInit {
 
-  consultations: Array<Consultation> = [];
+  consultations: Array<Consultation> = this.consultationService.getConsultations();;
 
   constructor(private consultationService: ConsultationService) { }
 
   ngOnInit(): void {
-    this.consultations = this.consultationService.getConsultations();
+  
   }
 
 }
